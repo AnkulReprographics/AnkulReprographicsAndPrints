@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Ankul Reprographics & Prints – High-quality printing and reprographic solutions for SMBs and walk-in customers." />
+  <title>Ankul Reprographics & Prints</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .dark-mode { background-color: #1a202c; color: white; }
+    .fade-in { animation: fadeIn 0.5s ease forwards; }
+    .fade-out { animation: fadeOut 0.5s ease forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+      /* Marquee animation for client logos */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 20s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 transition-colors duration-500">
+  <!-- Dark/Light Mode Toggle -->
+  <button id="toggleMode" class="fixed bottom-5 right-5 p-2 bg-gray-700 text-white rounded-full z-50 shadow-lg">🌓</button>
+
+  <!-- Sticky Navbar -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md transition-all text-white">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+     <a href="#" class="flex items-center">
+        <img src="../public/companylogo.jpg" alt="Ankul Reprographics & Prints" class="h-16 mr-9">
+        <span class="text-xl font-bold"></span>
+      </a>
+      <div class="hidden md:flex space-x-6">
+        <a href="#services" class="hover:text-blue-600 font-medium">Services</a>
+        <a href="#needs" class="hover:text-blue-600 font-medium">Shop by Needs</a>
+        <a href="#gallery" class="hover:text-blue-600 font-medium">Gallery</a>
+        <a href="#clients" class="hover:text-blue-600 font-medium">Clients</a>
+        <a href="#contact" class="hover:text-blue-600 font-medium">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
+      <a href="#services" class="block py-2 hover:text-blue-600">Services</a>
+      <a href="#needs" class="block py-2 hover:text-blue-600">Shop by Needs</a>
+      <a href="#gallery" class="block py-2 hover:text-blue-600">Gallery</a>
+      <a href="#clients" class="block py-2 hover:text-blue-600">Clients</a>
+      <a href="#contact" class="block py-2 hover:text-blue-600">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section with Rotating Text -->
+  <section class="relative h-screen flex items-center justify-center text-center text-white bg-black">
+   <!-- <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover">
+      <source src="hero.mp4" type="video/mp4" />
+    </video>-->
+    <img src="../public/head2.jpg" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover">
+    <div class="relative z-10 max-w-2xl px-6">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 whitespace-nowrap">
+        We Print <span id="rotating-text" class="inline-block fade-in"></span> Solutions.
+      </h1>
+      <a href="#contact" class="bg-blue-600 hover:bg-blue-700 transition text-white font-semibold py-3 px-6 rounded shadow-lg inline-block">Get a Quote</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center">Our Services</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Business Essentials -->
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="../public/office-stationery.jpg" alt="Stationery" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Stationery</h3>
+          <p class="text-sm">Letterheads, Diaries, Calendars</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="../public/idcard.jpg" alt="ID Cards & Forms" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">ID Cards & Forms</h3>
+          <p class="text-sm">Biometric Cards, Keypads, Inventory Forms</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="../public/dict.png" alt="Directories" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Directories</h3>
+          <p class="text-sm">Contact Books, Visitor Passes, Bell Panels</p>
+        </div>
+        <!-- Print & Promotion -->
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="..//public/sticker.jpg" alt="Vinyl Stickers" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Vinyl Stickers</h3>
+          <p class="text-sm">Sticky vinyl and waterproof tagging solutions</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="..//public/cal.jpg" alt="Calendars & Compliance" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Calendars & Compliance</h3>
+          <p class="text-sm">Board Calendars, Compliance Registers</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="..//public/vcardqr.jpg" alt="QR Codes & V-Cards" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">QR Codes & V-Cards</h3>
+          <p class="text-sm">Digital QR, NFC Cards, VCard & Contactless ID</p>
+        </div>
+        <!-- Fabric & Specialized -->
+        <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="..//public/fabric.jpg" alt="Fabric Printing" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Fabric Printing</h3>
+          <p class="text-sm">Waterproof and fade-resistant custom prints</p>
+        </div>
+         <div class="bg-white p-6 rounded shadow-lg text-center">
+          <img src="..//public/thesis.jpg" alt="Thesis" class="w-full h-40 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-semibold mb-2">Thesis</h3>
+          <p class="text-sm">Customised Binder/Thesis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop by Needs Section -->
+  <section id="needs" class="py-20 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center">Shop by Needs</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div class="relative group cursor-pointer">
+          <img src="events.jpg" alt="Events & Promotions" class="w-full h-40 object-cover rounded shadow-lg">
+          <button data-need="events" class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-lg font-semibold">Events & Promotions</button>
+        </div>
+        <div class="relative group cursor-pointer">
+          <img src="cafe.jpg" alt="Café & Restaurant Essentials" class="w-full h-40 object-cover rounded shadow-lg">
+          <button data-need="cafe" class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-lg font-semibold">Café & Restaurant Essentials</button>
+        </div>
+        <div class="relative group cursor-pointer">
+          <img src="employee.jpg" alt="Employee Engagement" class="w-full h-40 object-cover rounded shadow-lg">
+          <button data-need="employee" class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-lg font-semibold">Employee Engagement</button>
+        </div>
+        <div class="relative group cursor-pointer">
+          <img src="business.jpg" alt="Businesses & Organizations" class="w-full h-40 object-cover rounded shadow-lg">
+          <button data-need="business" class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-lg font-semibold">Businesses & Organizations</button>
+        </div>
+        <div class="relative group cursor-pointer">
+          <img src="startup.jpg" alt="Startups" class="w-full h-40 object-cover rounded shadow-lg">
+          <button data-need="startup" class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-lg font-semibold">Startups</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Needs Overlay -->
+  <div id="needs-overlay" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-xl p-6 max-w-4xl w-full relative">
+      <button id="close-needs" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 text-2xl">&times;</button>
+      <h3 id="needs-title" class="text-2xl font-bold mb-4"></h3>
+      <div id="needs-cards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </div>
+  </div>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-10 text-center">Project Gallery</h2>
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <img src="gallery1.jpg" alt="Project 1" class="rounded shadow hover:opacity-90 cursor-pointer" />
+        <img src="gallery2.jpg" alt="Project 2" class="rounded shadow hover:opacity-90 cursor-pointer" />
+        <img src="gallery3.jpg" alt="Project 3" class="rounded shadow hover:opacity-90 cursor-pointer" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <!-- Clients Section (Animated Reel) -->
+  <section id="clients" class="py-20 px-6 bg-gray-100">
+    <div class="max-w-7xl mx-auto overflow-hidden">
+      <h2 class="text-3xl font-bold mb-10 text-center">Trusted By</h2>
+      <div class="relative">
+        <div class="flex animate-marquee space-x-8">
+          <img src="../public/logo/logo1.png" alt="Client 1" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo2.png" alt="Client 2" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo3.png" alt="Client 3" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo4.png" alt="Client 4" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo5.png" alt="Client 5" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo6.png" alt="Client 6" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo7.png" alt="Client 7" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo1.png" alt="Client 1" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo2.png" alt="Client 2" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo3.png" alt="Client 3" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo4.png" alt="Client 4" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo5.png" alt="Client 5" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo6.png" alt="Client 6" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo7.png" alt="Client 7" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo1.png" alt="Client 1" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo2.png" alt="Client 2" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo3.png" alt="Client 3" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo4.png" alt="Client 4" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo5.png" alt="Client 5" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo6.png" alt="Client 6" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo7.png" alt="Client 7" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo1.png" alt="Client 1" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo2.png" alt="Client 2" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo3.png" alt="Client 3" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo4.png" alt="Client 4" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo5.png" alt="Client 5" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo6.png" alt="Client 6" class="h-12 grayscale hover:grayscale-0 transition" />
+          <img src="../public/logo/logo7.png" alt="Client 7" class="h-12 grayscale hover:grayscale-0 transition" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6 text-center">Request a Quote</h2>
+      <form id="quoteForm" class="space-y-4">
+        <input type="text" placeholder="Name" class="w-full border px-4 py-2 rounded" required />
+        <input type="email" placeholder="Email" class="w-full border px-4 py-2 rounded" required />
+        <select class="w-full border px-4 py-2 rounded" required>
+          <option value="">Select Service</option>
+          <option value="stationery">Stationery</option>
+          <option value="idcards">ID Cards & Forms</option>
+          <option value="directories">Directories</option>
+          <option value="vinyl">Vinyl Stickers</option>
+          <option value="calendar">Calendars & Compliance</option>
+          <option value="qrcodes">QR Codes & V-Cards</option>
+          <option value="fabric">Fabric Printing</option>
+        </select>
+        <input type="file" class="w-full" />
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-6 text-center">
+    <p class="text-sm">&copy; 2025 Ankul Reprographics & Prints. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById("menu-toggle").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+
+    // Dark/Light Mode Toggle
+    const toggleBtn = document.getElementById('toggleMode');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+
+    // ScrollReveal
+    ScrollReveal().reveal('section', { delay: 300, duration: 1000, reset: false, distance: '50px' });
+
+    // Quote Form Submission
+    document.getElementById("quoteForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      Swal.fire({ icon: 'success', title: 'Submitted!', text: 'Your quote request has been received.' });
+    });
+
+    // Rotating Hero Text
+    const rotatingText = document.getElementById('rotating-text');
+    const words = ['Quality', 'Fast', 'Custom', 'On-Demand'];
+    let idx = 0;
+    function rotate() {
+      rotatingText.classList.remove('fade-in');
+      rotatingText.classList.add('fade-out');
+      setTimeout(() => {
+        rotatingText.textContent = words[idx];
+        rotatingText.classList.remove('fade-out');
+        rotatingText.classList.add('fade-in');
+        idx = (idx + 1) % words.length;
+      }, 500);
+    }
+    rotatingText.textContent = words[0];
+    rotatingText.classList.add('fade-in');
+    setInterval(rotate, 3000);
+
+    // Shop by Needs Overlay & Filter
+    document.querySelectorAll('[data-need]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const need = btn.dataset.need;
+        document.getElementById('needs-title').textContent = btn.textContent;
+        const container = document.getElementById('needs-cards');
+        container.innerHTML = '';
+        document.querySelectorAll('#services .bg-white').forEach(card => {
+          if (card.textContent.toLowerCase().includes(need)) {
+            container.appendChild(card.cloneNode(true));
+          }
+        });
+        document.getElementById('needs-overlay').classList.remove('hidden');
+      });
+    });
+    document.getElementById('close-needs').addEventListener('click', () => {
+      document.getElementById('needs-overlay').classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
